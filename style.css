@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
 
 *,
-::before,
-::after {
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -19,13 +19,16 @@
 
 body {
   font-family: 'Big Shoulders Display', 'Lexend Deca', sans-serif;
-}
-
-section {
+  background-color: var(--very-light-gray);
   display: grid;
   place-items: center center;
   height: 100vh;
-  background-color: var(--very-light-gray);
+}
+
+section {
+  /* display: grid;
+  place-items: center center;
+  height: 100vh; */
 }
 
 .grid-3-cols {
@@ -35,18 +38,15 @@ section {
 }
 
 .grid-3-cols div:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px 0 0 10px;
 }
 
 .grid-3-cols div:last-child {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 0 10px 10px 0;
 }
 
 .icon {
   width: 60px;
-  margin-bottom: -35px;
 }
 
 .option h1 {
@@ -55,7 +55,6 @@ section {
   font-size: 2.5rem;
   text-transform: uppercase;
   color: var(--very-light-gray);
-  margin-bottom: -35px;
 }
 
 .option {
@@ -67,11 +66,12 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .option p {
   line-height: 1.7;
-  /* margin-bottom: 88px; */
+  margin-bottom: 45px;
 }
 
 .btn {
@@ -84,10 +84,11 @@ section {
   mix-blend-mode: lighten;
   padding: 15px 30px;
   align-self: flex-start;
+  transition: 0.3s;
 }
 
-a:hover,
-a:active {
+.btn:hover,
+.btn:active {
   background-color: transparent;
   color: #fff;
   border: 2px solid #fff;
@@ -111,4 +112,39 @@ a:active {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media all and (max-width: 800px) {
+  body {
+    display: grid;
+    place-items: center center;
+    max-height: 100vh;
+    margin: 50px 0 0 0;
+  }
+
+  .grid-3-cols {
+    grid-template-columns: 327px;
+    grid-template-rows: repeat(3, 442px);
+  }
+
+  .grid-3-cols div:first-child {
+    border-radius: 10px 10px 0 0;
+  }
+
+  .grid-3-cols div:last-child {
+    border-radius: 0 0 10px 10px;
+  }
+
+  .icon {
+    width: 65px;
+    margin: 0;
+  }
+
+  .option p {
+    margin-bottom: 0;
+  }
+
+  .attribution {
+    margin: 50px 0 0 0;
+  }
 }
